@@ -238,10 +238,14 @@ normFlowSet <- warpSet(asinhFlowSet, stains = colnames(asinhFlowSet)[c(7, 13, 14
 plot_aggregate(normFlowSet, channels = chs_of_interest, output_image = "FCSpostNormAsinh.png")
 
 normFlowSet[[1]]@description$`$CYT`
+normFlowSet[[1]]@description$`$CYT` <- "FACS"
+
 
 # names(cfEstimate) <- marker
 sce <- CATALYST::prepData(normFlowSet, panel = panel, md = md, transform = FALSE)
 assay(sce, "exprs") <- assay(sce, "counts")
+sce_tmp <- prepData(flowSet, panel = panel, md = md, transform = FALSE)
+assay(sce, "counts") <- assay(sce_tmp, "counts")
 # QC
 p <- plotExprs(sce, features = NULL, color_by = "condition")
 p$facet$params$ncol <- 4
