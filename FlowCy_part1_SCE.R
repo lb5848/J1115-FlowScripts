@@ -128,7 +128,7 @@ FCSfiles <- list.files(fcsDirectory, pattern = ".fcs$", full = FALSE)
 
 # Sample datasheet
 sample_mdName <- "J1115_sample_md.xls"
-sample_md <- read_excel(path = paste(PrimaryDirectory, sample_mdName, sep = "/"), col_names = TRUE, na = "NA") 
+sample_md <- read_excel(path = paste(PrimaryDirectory, sample_mdName, sep = "/"), col_names = TRUE) 
 sample_md <- data.frame(sample_md)
 
 
@@ -149,6 +149,7 @@ for(i in 1:length(groups)){
 }
 patient_id <- rep(NA, length(sample_id))
 for(i in 1:length(sample_id)){
+  #get row of corresponding Pt_id
   pt <- paste0("Pt_",which(sample_md == sample_id[i], arr.ind = TRUE)[1])
   patient_id[i] <- pt
 }
