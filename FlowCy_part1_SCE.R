@@ -20,7 +20,7 @@ if(!require('cytofCore')){
 # if(!require("CytoML")){
 #   BiocManager::install("CytoML")
 # }
-liif(!require('FlowSOM')){
+if(!require('FlowSOM')){
   BiocManager::install("FlowSOM")
 }
 if(!require('cluster')){
