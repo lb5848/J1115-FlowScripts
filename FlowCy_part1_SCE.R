@@ -112,7 +112,7 @@ PrimaryDirectory <- getwd()
 PrimaryDirectory
 
 
-# Define csv directory
+# Define fcs directory
 fcsName <- "fcs_files"
 fcsDirectory <- paste(PrimaryDirectory, fcsName, sep = "/")
 dir.create(fcsDirectory)
@@ -141,7 +141,6 @@ groups <- c("responder", "relapse")
 marker <- c("FSC-A", "FSC-H", "FSC-W", "SSC-A", "SSC-W", "TIGIT FITC", "Live.Dead", "CD27 PE",
             "PD1 PE-Dazzle 594", "CD69 PerCP-Cy5.5", "CD57 PE-Cy7", "TIM3 APC",
             "CD8 AlexaFluor 700", "CD3 APC-Fire 750", "DNAM1 BV421", "TIME")
-# Create FCS files from CSVfiles
 
 group_id <- rep(NA, length(sample_id))
 for(i in 1:length(groups)){
