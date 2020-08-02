@@ -92,7 +92,8 @@ dev.off()
 
 # UMAP color_by = Clusters facet_by = condition
 tiff(filename = "UMAP_clusters_condition.tiff", compression = "lzw", bg = "white")
-plotDR(sce, dr = "UMAP", color_by = "Clusters", facet_by = "condition") + scale_color_brewer(palette = "Dark2")
+plotDR(sce, dr = "UMAP", color_by = "Clusters", facet_by = "condition") + scale_color_brewer(palette = "Dark2") + 
+  geom_density2d(binwidth = 0.006, colour = "black")
 dev.off()
 svg(filename = "UMAP_clusters_condition.svg", bg = "white")
 plotDR(sce, dr = "UMAP", color_by = "Clusters", facet_by = "condition") + scale_color_brewer(palette = "Dark2")
